@@ -153,7 +153,7 @@ const SkillCard = ({ category, index }: { category: typeof skillCategories[0]; i
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 px-6 bg-gradient-to-br from-card to-background relative overflow-hidden">
+    <section id="skills" className="py-20 px-6 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse" />
