@@ -28,7 +28,7 @@ export const ThemeToggle: React.FC = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg bg-muted/50 hover:bg-muted/80 transition-all duration-300 volcanic-glow"
+      className="relative p-2 rounded-lg bg-muted/50 hover:bg-muted/80 transition-all duration-300 clean-glow"
       whileTap={{ scale: 0.95 }}
       whileHover={{ scale: 1.05 }}
     >

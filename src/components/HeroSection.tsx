@@ -105,7 +105,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-6xl md:text-8xl font-bold volcanic-gradient bg-clip-text text-transparent animate-glow-pulse"
+            className="text-6xl md:text-8xl font-bold primary-gradient bg-clip-text text-transparent animate-clean-glow-pulse"
           >
             Rithick M K
           </motion.h1>
@@ -142,7 +142,7 @@ export const HeroSection = () => {
           >
             <Button
               size="lg"
-              className="volcanic-glow group relative overflow-hidden"
+              className="clean-glow group relative overflow-hidden"
               onClick={() => scrollToSection('projects')}
             >
               <span className="relative z-10 flex items-center gap-2">

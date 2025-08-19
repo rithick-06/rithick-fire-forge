@@ -122,9 +122,9 @@ export const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Get In <span className="volcanic-gradient bg-clip-text text-transparent">Touch</span>
+            Get In <span className="primary-gradient bg-clip-text text-transparent">Touch</span>
           </h2>
-          <div className="w-24 h-1 molten-gradient mx-auto rounded-full mb-8" />
+          <div className="w-24 h-1 subtle-gradient mx-auto rounded-full mb-8" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to discuss your next AI project? Let's build something amazing together.
           </p>
@@ -138,7 +138,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 volcanic-glow border-primary/20 hover:shadow-volcanic transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
               <h3 className="text-2xl font-bold text-foreground mb-6">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -234,7 +234,7 @@ export const ContactSection = () => {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full volcanic-glow group"
+                    className="w-full clean-glow group"
                   >
                     <Send className="w-5 h-5 mr-2 group-hover:animate-bounce-slow" />
                     Send Message
@@ -253,7 +253,7 @@ export const ContactSection = () => {
             className="space-y-8"
           >
             {/* Contact Details */}
-            <Card className="p-8 volcanic-glow border-primary/20 hover:shadow-volcanic transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
               <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
               
               <div className="space-y-6">
@@ -273,7 +273,7 @@ export const ContactSection = () => {
                       <motion.div
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.3 }}
-                        className="w-12 h-12 rounded-full ember-gradient flex items-center justify-center group-hover:shadow-glow"
+                        className="w-12 h-12 rounded-full dark-gradient flex items-center justify-center group-hover:shadow-glow"
                       >
                         <info.icon className="w-6 h-6 text-primary-foreground" />
                       </motion.div>
@@ -290,7 +290,7 @@ export const ContactSection = () => {
             </Card>
 
             {/* Social Media */}
-            <Card className="p-8 volcanic-glow border-primary/20 hover:shadow-volcanic transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
               <h3 className="text-2xl font-bold text-foreground mb-6">Connect With Me</h3>
               
               <div className="flex gap-4">
@@ -325,7 +325,7 @@ export const ContactSection = () => {
               transition={{ delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 volcanic-glow border-primary/20 hover:shadow-volcanic transition-all duration-500 text-center">
+              <Card className="p-6 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                   <p className="text-sm font-medium text-foreground">Available for Projects</p>

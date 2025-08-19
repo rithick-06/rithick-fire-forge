@@ -17,7 +17,7 @@ const projects = [
     description: "Intelligent conversational AI system using Retrieval-Augmented Generation with LLAMA models, Flask backend, and FAISS vector database for efficient document retrieval and context-aware responses.",
     icon: MessageSquare,
     tech: ["Python", "LLAMA", "Flask", "FAISS", "Hugging Face", "RAG"],
-    gradient: "volcanic-gradient",
+    gradient: "primary-gradient",
     features: [
       "Advanced document retrieval with FAISS",
       "Context-aware conversational AI",
@@ -30,7 +30,7 @@ const projects = [
     description: "Computer vision system for automated quality control in manufacturing, utilizing EfficientNet, YOLOv8, ResNet, and UNet models for precise defect identification and classification.",
     icon: Eye,
     tech: ["PyTorch", "YOLOv8", "EfficientNet", "ResNet", "UNet", "OpenCV"],
-    gradient: "molten-gradient",
+    gradient: "subtle-gradient",
     features: [
       "Multi-model ensemble approach",
       "Real-time defect detection",
@@ -43,7 +43,7 @@ const projects = [
     description: "Hybrid deep learning model combining CNN, RNN, and LSTM architectures for detecting and classifying toxic content in user-generated comments with high accuracy and low latency.",
     icon: AlertTriangle,
     tech: ["TensorFlow", "CNN", "RNN", "LSTM", "NLP", "Keras"],
-    gradient: "ember-gradient",
+    gradient: "dark-gradient",
     features: [
       "Hybrid CNN + RNN + LSTM architecture",
       "Multi-class toxicity classification",
@@ -67,7 +67,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
       viewport={{ once: true }}
       className="group h-full"
     >
-      <Card className="p-8 h-full volcanic-glow border-primary/20 hover:border-primary/40 hover:shadow-volcanic transition-all duration-500 relative overflow-hidden">
+      <Card className="p-8 h-full clean-glow border-primary/20 hover:border-primary/40 hover:shadow-clean transition-all duration-500 relative overflow-hidden">
         {/* Background Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
@@ -156,7 +156,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
           <div className="flex gap-3 mt-auto">
             <Button 
               size="sm" 
-              className="flex-1 volcanic-glow group/btn"
+              className="flex-1 clean-glow group/btn"
               variant="default"
             >
               <Github className="w-4 h-4 mr-2 group-hover/btn:animate-bounce-slow" />
@@ -196,9 +196,9 @@ export const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Featured <span className="volcanic-gradient bg-clip-text text-transparent">Projects</span>
+            Featured <span className="primary-gradient bg-clip-text text-transparent">Projects</span>
           </h2>
-          <div className="w-24 h-1 molten-gradient mx-auto rounded-full mb-8" />
+          <div className="w-24 h-1 subtle-gradient mx-auto rounded-full mb-8" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Innovative AI/ML solutions showcasing expertise in deep learning, computer vision, and natural language processing
           </p>
@@ -218,7 +218,7 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <Button size="lg" className="volcanic-glow group">
+          <Button size="lg" className="clean-glow group">
             <Github className="w-5 h-5 mr-2 group-hover:animate-bounce-slow" />
             View All Projects on GitHub
           </Button>

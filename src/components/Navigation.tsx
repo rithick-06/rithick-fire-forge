@@ -93,7 +93,7 @@ export const Navigation = () => {
                 >
                   {item.name}
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 volcanic-gradient rounded-full"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 primary-gradient rounded-full"
                     initial={{ scaleX: 0 }}
                     animate={{ 
                       scaleX: activeSection === item.href.slice(1) ? 1 : 0 
@@ -112,7 +112,7 @@ export const Navigation = () => {
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg text-foreground hover:text-primary transition-colors volcanic-glow"
+                className="p-2 rounded-lg text-foreground hover:text-primary transition-colors clean-glow"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </motion.button>
@@ -155,7 +155,7 @@ export const Navigation = () => {
                     onClick={() => scrollToSection(item.href)}
                     className={`block w-full text-left px-6 py-4 text-2xl font-semibold rounded-lg transition-all duration-300 ${
                       activeSection === item.href.slice(1)
-                        ? 'text-primary volcanic-gradient bg-clip-text text-transparent shadow-glow'
+                        ? 'text-primary primary-gradient bg-clip-text text-transparent shadow-glow'
                         : 'text-foreground hover:text-primary hover:bg-muted/50'
                     }`}
                   >

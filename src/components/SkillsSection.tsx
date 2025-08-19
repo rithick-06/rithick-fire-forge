@@ -17,37 +17,37 @@ const skillCategories = [
     title: "Languages",
     icon: Code2,
     skills: ["Python", "Java", "C", "JavaScript", "SQL"],
-    gradient: "volcanic-gradient"
+    gradient: "primary-gradient"
   },
   {
     title: "AI/ML Frameworks",
     icon: Brain,
     skills: ["PyTorch", "TensorFlow", "Keras", "Hugging Face", "Scikit-learn"],
-    gradient: "molten-gradient"
+    gradient: "subtle-gradient"
   },
   {
     title: "Tools & Platforms",
     icon: Database,
     skills: ["Docker", "Git", "Linux", "Flask", "Gradio"],
-    gradient: "ember-gradient"
+    gradient: "dark-gradient"
   },
   {
     title: "Vision Models",
     icon: Eye,
     skills: ["YOLOv8", "EfficientNet", "UNet", "ResNet", "OpenCV"],
-    gradient: "volcanic-gradient"
+    gradient: "primary-gradient"
   },
   {
     title: "NLP & LLMs",
     icon: MessageSquare,
     skills: ["LLAMA", "BERT", "GPT", "FAISS", "RAG"],
-    gradient: "molten-gradient"
+    gradient: "subtle-gradient"
   },
   {
     title: "Deployment",
     icon: Zap,
     skills: ["AWS", "Azure", "Kubernetes", "MLOps", "CI/CD"],
-    gradient: "ember-gradient"
+    gradient: "dark-gradient"
   }
 ];
 
@@ -72,7 +72,7 @@ const SkillOrb = ({ skill, index, delay }: { skill: string; index: number; delay
     >
       <Badge 
         variant="secondary" 
-        className="px-4 py-2 text-sm font-medium volcanic-glow hover:shadow-volcanic transition-all duration-300 group-hover:shadow-glow-accent"
+        className="px-4 py-2 text-sm font-medium clean-glow hover:shadow-clean transition-all duration-300 group-hover:shadow-glow-accent"
       >
         {skill}
       </Badge>
@@ -94,7 +94,7 @@ const SkillCard = ({ category, index }: { category: typeof skillCategories[0]; i
       viewport={{ once: true }}
       className="group h-full"
     >
-      <Card className="p-8 h-full volcanic-glow border-primary/20 hover:border-primary/40 hover:shadow-volcanic transition-all duration-500 relative overflow-hidden">
+      <Card className="p-8 h-full clean-glow border-primary/20 hover:border-primary/40 hover:shadow-clean transition-all duration-500 relative overflow-hidden">
         {/* Background Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
@@ -169,9 +169,9 @@ export const SkillsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            My <span className="volcanic-gradient bg-clip-text text-transparent">Skills</span>
+            My <span className="primary-gradient bg-clip-text text-transparent">Skills</span>
           </h2>
-          <div className="w-24 h-1 molten-gradient mx-auto rounded-full mb-8" />
+          <div className="w-24 h-1 subtle-gradient mx-auto rounded-full mb-8" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive toolkit for building intelligent applications and deploying AI solutions at scale
           </p>

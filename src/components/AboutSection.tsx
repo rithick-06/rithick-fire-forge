@@ -30,9 +30,9 @@ export const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="volcanic-gradient bg-clip-text text-transparent">Me</span>
+            About <span className="primary-gradient bg-clip-text text-transparent">Me</span>
           </h2>
-          <div className="w-24 h-1 molten-gradient mx-auto rounded-full mb-8" />
+          <div className="w-24 h-1 subtle-gradient mx-auto rounded-full mb-8" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -44,7 +44,7 @@ export const AboutSection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <Card className="p-8 volcanic-glow border-primary/20 hover:shadow-volcanic transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Driven <span className="text-primary font-semibold">Generative AI & Machine Learning Developer</span> specializing 
                 in building intelligent, data-driven applications with cutting-edge deep learning models.
@@ -99,11 +99,11 @@ export const AboutSection = () => {
                 }}
                 className="group"
               >
-                <Card className="p-6 text-center volcanic-glow border-primary/20 hover:shadow-volcanic transition-all duration-500 hover:border-primary/50">
+                <Card className="p-6 text-center clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 hover:border-primary/50">
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-full ember-gradient mb-4 group-hover:shadow-glow"
+                    className="inline-flex items-center justify-center w-16 h-16 rounded-full dark-gradient mb-4 group-hover:shadow-glow"
                   >
                     <stat.icon className="w-8 h-8 text-primary-foreground" />
                   </motion.div>

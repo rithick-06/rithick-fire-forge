@@ -70,14 +70,14 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			backgroundImage: {
-				'volcanic-gradient': 'var(--gradient-volcanic)',
-				'molten-gradient': 'var(--gradient-molten)',
-				'ember-gradient': 'var(--gradient-ember)',
+				'primary-gradient': 'var(--gradient-primary)',
+				'subtle-gradient': 'var(--gradient-subtle)',
+				'dark-gradient': 'var(--gradient-dark)',
 				'glow-gradient': 'var(--gradient-glow)'
 			},
 			boxShadow: {
-				'volcanic': 'var(--shadow-volcanic)',
-				'ember': 'var(--shadow-ember)',
+				'clean': 'var(--shadow-clean)',
+				'subtle': 'var(--shadow-subtle)',
 				'glow': 'var(--glow-primary)',
 				'glow-accent': 'var(--glow-accent)'
 			},
@@ -94,9 +94,9 @@ export default {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
 				},
-				'glow-pulse': {
+				'clean-glow-pulse': {
 					'0%, 100%': { boxShadow: 'var(--glow-primary)' },
-					'50%': { boxShadow: 'var(--glow-primary), var(--shadow-volcanic)' }
+					'50%': { boxShadow: 'var(--glow-primary), var(--shadow-clean)' }
 				},
 				'rotate-slow': {
 					'0%': { transform: 'rotate(0deg)' },
@@ -111,7 +111,7 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 3s ease-in-out infinite',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'clean-glow-pulse': 'clean-glow-pulse 2s ease-in-out infinite',
 				'rotate-slow': 'rotate-slow 10s linear infinite',
 				'bounce-slow': 'bounce-slow 2s ease-in-out infinite'
 			}
