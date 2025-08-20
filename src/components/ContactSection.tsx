@@ -110,6 +110,8 @@ export const ContactSection = () => {
 
     try {
       const formDataToSend = new FormData();
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "a9f3fdb7-1dba-4aff-aebb-feb3500ecdee";
+      formDataToSend.append('access_key', accessKey);
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
       formDataToSend.append('subject', formData.subject);
@@ -190,9 +192,7 @@ export const ContactSection = () => {
           >
             <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 bg-card/50 backdrop-blur-xl hover:bg-card/70 hover:border-primary/40 shadow-xl hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-foreground mb-6">Send a Message</h3>
-              
-                                                           <form onSubmit={handleSubmit} className="space-y-6">
-                  <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "a9f3fdb7-1dba-4aff-aebb-feb3500ecdee"} />
+              <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Honeypot field to prevent spam */}
                   <input type="text" name="botcheck" style={{ display: 'none' }} />
                 <div className="grid md:grid-cols-2 gap-4">
