@@ -13,43 +13,28 @@ import {
 
 const projects = [
   {
-    title: "RAG-Based Chatbot with LLAMA",
-    description: "Intelligent conversational AI system using Retrieval-Augmented Generation with LLAMA models, Flask backend, and FAISS vector database for efficient document retrieval and context-aware responses.",
-    icon: MessageSquare,
-    tech: ["Python", "LLAMA", "Flask", "FAISS", "Hugging Face", "RAG"],
-    gradient: "primary-gradient",
-    features: [
-      "Advanced document retrieval with FAISS",
-      "Context-aware conversational AI",
-      "Real-time response generation",
-      "Scalable Flask architecture"
-    ]
+    title: "Chatbot with LLAMA (RAG-based)",
+    description: "Built a Retrieval-Augmented Generation (RAG) chatbot using Flask, FAISS, and Hugging Face embeddings. Integrated Ollama LLM with RetrievalQA for contextual responses, boosting accuracy by 32%.",
+    tech: ["Flask", "FAISS", "Hugging Face", "Ollama", "RAG"],
+    link: "#",
+    github: "https://github.com/rithick-06/llama-rag-chatbot",
+    image: "/placeholder.svg"
   },
   {
-    title: "Manufacturing Defect Detection",
-    description: "Computer vision system for automated quality control in manufacturing, utilizing EfficientNet, YOLOv8, ResNet, and UNet models for precise defect identification and classification.",
-    icon: Eye,
-    tech: ["PyTorch", "YOLOv8", "EfficientNet", "ResNet", "UNet", "OpenCV"],
-    gradient: "subtle-gradient",
-    features: [
-      "Multi-model ensemble approach",
-      "Real-time defect detection",
-      "High accuracy classification",
-      "Production-ready deployment"
-    ]
+    title: "Defect Detection for Manufacturing",
+    description: "Developed a two-stage vision pipeline for defect classification and localization. Stage 1: EfficientNet for classification; Stage 2: YOLOv8, ResNet, UNet for defect detection. Achieved 95% accuracy on validation dataset.",
+    tech: ["EfficientNet", "YOLOv8", "ResNet", "UNet", "Computer Vision"],
+    link: "#",
+    github: "https://github.com/rithick-06/defect-detection",
+    image: "/placeholder.svg"
   },
   {
     title: "Comment Toxicity Detection",
-    description: "Hybrid deep learning model combining CNN, RNN, and LSTM architectures for detecting and classifying toxic content in user-generated comments with high accuracy and low latency.",
-    icon: AlertTriangle,
-    tech: ["TensorFlow", "CNN", "RNN", "LSTM", "NLP", "Keras"],
-    gradient: "dark-gradient",
-    features: [
-      "Hybrid CNN + RNN + LSTM architecture",
-      "Multi-class toxicity classification",
-      "Real-time content moderation",
-      "Scalable inference pipeline"
-    ]
+    description: "Designed a CNN-RNN-LSTM hybrid model for real-time toxicity detection. Reached an 87.6% F1 score, improving over baseline by 18%.",
+    tech: ["CNN", "RNN", "LSTM", "NLP", "Deep Learning"],
+    link: "#",
+    github: "https://github.com/rithick-06/toxicity-detection",
+    image: "/placeholder.svg"
   }
 ];
 
@@ -94,15 +79,6 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
         ))}
 
         <div className="relative z-10 flex flex-col h-full">
-          {/* Icon */}
-          <motion.div
-            whileHover={{ rotate: 360, scale: 1.1 }}
-            transition={{ duration: 0.6 }}
-            className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${project.gradient} mb-6 group-hover:shadow-glow`}
-          >
-            <project.icon className="w-8 h-8 text-primary-foreground" />
-          </motion.div>
-
           {/* Title */}
           <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
             {project.title}
@@ -112,25 +88,6 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
           <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
             {project.description}
           </p>
-
-          {/* Features */}
-          <div className="mb-6">
-            <h4 className="text-sm font-semibold text-foreground mb-3">Key Features:</h4>
-            <ul className="space-y-2">
-              {project.features.map((feature, i) => (
-                <motion.li
-                  key={feature}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.2 + i * 0.1 }}
-                  className="text-sm text-muted-foreground flex items-center gap-2"
-                >
-                  <ArrowRight className="w-3 h-3 text-primary" />
-                  {feature}
-                </motion.li>
-              ))}
-            </ul>
-          </div>
 
           {/* Tech Stack */}
           <div className="mb-6">
@@ -158,6 +115,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
               size="sm" 
               className="flex-1 clean-glow group/btn"
               variant="default"
+              onClick={() => window.open(project.github, '_blank')}
             >
               <Github className="w-4 h-4 mr-2 group-hover/btn:animate-bounce-slow" />
               View Code
@@ -166,6 +124,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
               size="sm" 
               variant="outline" 
               className="flex-1 border-primary/50 hover:border-primary hover:shadow-glow"
+              onClick={() => window.open(project.link, '_blank')}
             >
               <ExternalLink className="w-4 h-4 mr-2" />
               Live Demo
@@ -218,7 +177,11 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <Button size="lg" className="clean-glow group">
+          <Button 
+            size="lg" 
+            className="clean-glow group"
+            onClick={() => window.open('https://github.com/rithick-06', '_blank')}
+          >
             <Github className="w-5 h-5 mr-2 group-hover:animate-bounce-slow" />
             View All Projects on GitHub
           </Button>

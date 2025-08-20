@@ -2,129 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Clean Professional Design System - Modern, minimalist aesthetics
+/* Modern Tech Design System - Dynamic, animated aesthetics
 All colors MUST be HSL for consistency.
 */
 
 @layer base {
   :root {
-    /* Clean Light Theme - Pure & Professional */
-    --background: 0 0% 98%;
-    --foreground: 0 0% 5%;
+    /* Modern Light Theme - Tech & Dynamic */
+    --background: 220 25% 98%;
+    --foreground: 220 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 220 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover-foreground: 220 25% 15%;
 
-    /* Clean Primary - Professional Blue */
-    --primary: 217 91% 60%;
+    /* Modern Primary - Electric Blue */
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 217 91% 70%;
+    --primary-glow: 210 100% 60%;
 
-    /* Clean Secondary - Neutral Gray */
-    --secondary: 220 9% 46%;
+    /* Modern Secondary - Tech Gray */
+    --secondary: 220 15% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 13% 91%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 220 15% 85%;
+    --muted-foreground: 220 15% 35%;
 
-    /* Clean Accent - Modern Cyan */
-    --accent: 200 98% 39%;
+    /* Modern Accent - Electric Purple */
+    --accent: 280 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 60%;
+    --border: 220 15% 80%;
+    --input: 220 15% 80%;
+    --ring: 210 100% 50%;
 
-    /* Clean Professional Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(200 98% 39%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 13% 95%));
-    --gradient-dark: linear-gradient(90deg, hsl(220 9% 46%), hsl(217 32% 17%));
-    --gradient-glow: radial-gradient(circle, hsl(217 91% 70% / 0.2), transparent 70%);
+    /* Modern Tech Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%), hsl(280 100% 50%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 25% 90%));
+    --gradient-dark: linear-gradient(90deg, hsl(220 15% 40%), hsl(220 25% 25%));
+    --gradient-glow: radial-gradient(circle, hsl(210 100% 60% / 0.2), transparent 70%);
+    --gradient-cyber: linear-gradient(45deg, hsl(180 100% 40%), hsl(210 100% 50%), hsl(280 100% 50%));
 
-    /* Clean Professional Shadows & Effects */
-    --shadow-clean: 0 4px 20px -4px hsl(217 91% 60% / 0.15);
-    --shadow-subtle: 0 2px 10px -2px hsl(220 9% 46% / 0.1);
-    --glow-primary: 0 0 20px hsl(217 91% 70% / 0.3);
-    --glow-accent: 0 0 15px hsl(200 98% 50% / 0.2);
+    /* Modern Tech Shadows & Effects */
+    --shadow-clean: 0 4px 20px -4px hsl(210 100% 50% / 0.15);
+    --shadow-subtle: 0 2px 10px -2px hsl(220 15% 40% / 0.1);
+    --glow-primary: 0 0 20px hsl(210 100% 60% / 0.3);
+    --glow-accent: 0 0 15px hsl(280 100% 50% / 0.2);
+    --glow-cyber: 0 0 30px hsl(180 100% 40% / 0.4);
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-background: 220 25% 98%;
+    --sidebar-foreground: 220 25% 25%;
+    --sidebar-primary: 220 25% 15%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 25% 90%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 220 15% 80%;
+    --sidebar-ring: 210 100% 50%;
   }
 
   .dark {
-    /* Clean Dark Theme - Professional & Modern */
-    --background: 217 32% 7%;
+    /* Modern Dark Theme - Cyber & Tech */
+    --background: 220 25% 5%;
     --foreground: 0 0% 95%;
 
-    --card: 217 32% 9%;
+    --card: 220 25% 8%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 217 32% 7%;
+    --popover: 220 25% 5%;
     --popover-foreground: 0 0% 95%;
 
-    /* Dark Clean Primary - Bright Blue */
-    --primary: 217 91% 65%;
+    /* Dark Modern Primary - Bright Electric Blue */
+    --primary: 210 100% 65%;
     --primary-foreground: 0 0% 10%;
-    --primary-glow: 217 91% 75%;
+    --primary-glow: 210 100% 75%;
 
-    /* Dark Clean Secondary - Professional Gray */
-    --secondary: 217 19% 24%;
+    /* Dark Modern Secondary - Professional Gray */
+    --secondary: 220 15% 25%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 217 19% 18%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 15% 65%;
 
-    /* Dark Clean Accent - Modern Cyan */
-    --accent: 200 98% 45%;
+    /* Dark Modern Accent - Bright Purple */
+    --accent: 280 100% 65%;
     --accent-foreground: 0 0% 10%;
 
     --destructive: 0 75% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 217 19% 20%;
-    --input: 217 19% 15%;
-    --ring: 217 91% 65%;
+    --border: 220 15% 20%;
+    --input: 220 15% 15%;
+    --ring: 210 100% 65%;
 
-    /* Dark Clean Professional Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 65%), hsl(200 98% 45%));
-    --gradient-subtle: linear-gradient(180deg, hsl(217 32% 9%), hsl(217 32% 7%));
-    --gradient-dark: linear-gradient(90deg, hsl(217 19% 24%), hsl(217 32% 9%));
-    --gradient-glow: radial-gradient(circle, hsl(217 91% 75% / 0.3), transparent 70%);
+    /* Dark Modern Tech Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 65%), hsl(280 100% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(220 25% 8%), hsl(220 25% 5%));
+    --gradient-dark: linear-gradient(90deg, hsl(220 15% 25%), hsl(220 25% 8%));
+    --gradient-glow: radial-gradient(circle, hsl(210 100% 75% / 0.4), transparent 70%);
+    --gradient-cyber: linear-gradient(45deg, hsl(180 100% 55%), hsl(210 100% 65%), hsl(280 100% 65%));
 
-    /* Dark Clean Professional Shadows & Effects */
-    --shadow-clean: 0 8px 30px -8px hsl(217 91% 65% / 0.25);
-    --shadow-subtle: 0 4px 15px -4px hsl(220 9% 46% / 0.2);
-    --glow-primary: 0 0 25px hsl(217 91% 75% / 0.4);
-    --glow-accent: 0 0 20px hsl(200 98% 50% / 0.3);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Dark Modern Tech Shadows & Effects */
+    --shadow-clean: 0 8px 30px -8px hsl(210 100% 65% / 0.3);
+    --shadow-subtle: 0 4px 15px -4px hsl(220 15% 50% / 0.2);
+    --glow-primary: 0 0 25px hsl(210 100% 75% / 0.5);
+    --glow-accent: 0 0 20px hsl(280 100% 65% / 0.4);
+    --glow-cyber: 0 0 35px hsl(180 100% 55% / 0.6);
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 220 25% 95%;
+    --sidebar-primary: 210 100% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 220 25% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 210 100% 65%;
   }
 }
 
@@ -138,14 +136,23 @@ All colors MUST be HSL for consistency.
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
-  /* Clean Animation Utilities */
-  .clean-glow {
+  /* Modern Animation Utilities */
+  .tech-glow {
     box-shadow: var(--glow-primary);
     transition: box-shadow 0.3s ease;
   }
 
-  .clean-glow:hover {
+  .tech-glow:hover {
     box-shadow: var(--glow-primary), var(--shadow-clean);
+  }
+
+  .cyber-glow {
+    box-shadow: var(--glow-cyber);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .cyber-glow:hover {
+    box-shadow: var(--glow-cyber), var(--shadow-clean);
   }
 
   .subtle-gradient {
@@ -160,24 +167,120 @@ All colors MUST be HSL for consistency.
     background: var(--gradient-dark);
   }
 
-  /* Floating Animation */
+  .cyber-gradient {
+    background: var(--gradient-cyber);
+  }
+
+  /* Modern Tech Specific Utilities */
+  .electric-glow {
+    box-shadow: 0 0 20px hsl(210 100% 60% / 0.4);
+  }
+
+  .electric-glow:hover {
+    box-shadow: 0 0 30px hsl(210 100% 60% / 0.6), 0 4px 20px -4px hsl(210 100% 50% / 0.2);
+  }
+
+  .cyber-gradient-text {
+    background: var(--gradient-cyber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .electric-gradient-text {
+    background: linear-gradient(135deg, hsl(210 100% 50%), hsl(280 100% 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced Floating Animation */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-5px) rotate(0deg); }
+    75% { transform: translateY(-15px) rotate(-1deg); }
   }
 
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
-  /* Clean Glow Pulse Animation */
-  @keyframes clean-glow-pulse {
-    0%, 100% { box-shadow: var(--glow-primary); }
-    50% { box-shadow: var(--glow-primary), var(--shadow-clean); }
+  /* Tech Pulse Animation */
+  @keyframes tech-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(210 100% 60% / 0.3);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(210 100% 60% / 0.6);
+      transform: scale(1.05);
+    }
   }
 
-  .animate-clean-glow-pulse {
-    animation: clean-glow-pulse 2s ease-in-out infinite;
+  .animate-tech-pulse {
+    animation: tech-pulse 2s ease-in-out infinite;
+  }
+
+  /* Cyber Pulse Animation */
+  @keyframes cyber-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(180 100% 50% / 0.3);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(180 100% 50% / 0.6);
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-cyber-pulse {
+    animation: cyber-pulse 2s ease-in-out infinite;
+  }
+
+  /* Matrix Rain Effect */
+  @keyframes matrix-rain {
+    0% { transform: translateY(-100vh); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+
+  .matrix-rain {
+    animation: matrix-rain 3s linear infinite;
+  }
+
+  /* Glitch Effect */
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+
+  .glitch {
+    animation: glitch 0.3s ease-in-out infinite;
+  }
+
+  /* Holographic Effect */
+  @keyframes holographic {
+    0%, 100% { 
+      background: linear-gradient(45deg, hsl(180 100% 50%), hsl(210 100% 60%), hsl(280 100% 60%));
+    }
+    25% { 
+      background: linear-gradient(45deg, hsl(210 100% 60%), hsl(280 100% 60%), hsl(180 100% 50%));
+    }
+    50% { 
+      background: linear-gradient(45deg, hsl(280 100% 60%), hsl(180 100% 50%), hsl(210 100% 60%));
+    }
+    75% { 
+      background: linear-gradient(45deg, hsl(180 100% 50%), hsl(210 100% 60%), hsl(280 100% 60%));
+    }
+  }
+
+  .holographic {
+    animation: holographic 4s ease-in-out infinite;
   }
 
   /* Particle Trail Effect */
@@ -199,5 +302,58 @@ All colors MUST be HSL for consistency.
 
   .particle-trail:hover::before {
     left: 100%;
+  }
+
+  /* Neon Border Effect */
+  .neon-border {
+    position: relative;
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, hsl(180 100% 50%), hsl(210 100% 60%), hsl(280 100% 60%)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: holographic 3s ease-in-out infinite;
+  }
+
+  /* 3D Transform Utilities */
+  .perspective-3d {
+    perspective: 1000px;
+  }
+
+  .rotate-3d {
+    transform-style: preserve-3d;
+  }
+
+  .hover-3d:hover {
+    transform: rotateX(10deg) rotateY(10deg) scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+  /* Scanning Line Effect */
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(180 100% 50%), transparent);
+    animation: scan-line 2s linear infinite;
   }
 }

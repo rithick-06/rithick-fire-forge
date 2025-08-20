@@ -21,20 +21,26 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "rithick.mk@example.com",
-    href: "mailto:rithick.mk@example.com"
+    value: "rithick06@yahoo.com",
+    href: "mailto:rithick06@yahoo.com"
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 12345 67890",
-    href: "tel:+911234567890"
+    value: "+91 9585224455",
+    href: "tel:+919585224455"
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "India",
+    value: "Tirupur, India",
     href: "#"
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/rithick-m-k",
+    href: "https://www.linkedin.com/in/rithick-m-k/"
   }
 ];
 

@@ -4,18 +4,18 @@ import { Badge } from '@/components/ui/badge';
 import { Brain, Code, Database, Zap } from 'lucide-react';
 
 const stats = [
-  { icon: Brain, label: "AI Models Built", value: "15+" },
-  { icon: Code, label: "Languages", value: "5+" },
-  { icon: Database, label: "Projects", value: "20+" },
-  { icon: Zap, label: "Years Experience", value: "3+" },
+  { icon: Brain, label: "AI Models Built", value: "3+" },
+  { icon: Code, label: "Languages", value: "3+" },
+  { icon: Database, label: "Projects", value: "3+" },
+  { icon: Zap, label: "Years Experience", value: "0+" },
 ];
 
 const highlights = [
   "Generative AI & Machine Learning",
-  "Deep Learning Models",
+  "LLMs & Diffusion Models",
   "Computer Vision",
   "Natural Language Processing",
-  "Scalable Deployment"
+  "Scalable AI Deployment"
 ];
 
 export const AboutSection = () => {
@@ -46,15 +46,17 @@ export const AboutSection = () => {
           >
             <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Driven <span className="text-primary font-semibold">Generative AI & Machine Learning Developer</span> specializing 
-                in building intelligent, data-driven applications with cutting-edge deep learning models.
+                Driven <span className="text-primary font-semibold">Generative AI & Machine Learning Developer</span> specializing in 
+                building intelligent, data-driven applications with cutting-edge deep learning models.
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Skilled in <span className="text-accent font-semibold">generative models</span>, 
+                Expertise includes <span className="text-accent font-semibold">generative models</span>, 
+                <span className="text-primary font-semibold"> LLMs</span>, 
+                <span className="text-accent font-semibold"> diffusion models</span>, 
                 <span className="text-primary font-semibold"> NLP</span>, and 
-                <span className="text-accent font-semibold"> computer vision</span> with expertise 
-                in scalable deployment and production-ready solutions.
+                <span className="text-accent font-semibold"> computer vision</span>. Skilled in 
+                <span className="text-primary font-semibold"> scalable AI deployment</span>, full-stack integration, and fine-tuning domain-specific architectures.
               </p>
 
               <div className="space-y-4">
