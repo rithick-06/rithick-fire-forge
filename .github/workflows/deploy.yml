@@ -3,22 +3,30 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # change to master if your default branch is master
+      - main   # 👈 Change this if your branch is named "master"
+
+# Add permissions at the job level
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # 👈 Update to v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4  # 👈 Update to v4
         with:
-          node-version: 18
+          node-version: '20'  # 👈 Updated to LTS version
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # 👈 Use ci for cleaner installs
 
       - name: Build project
         run: npm run build
@@ -27,4 +35,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist   # 👈 Make sure this matches your actual build directory
