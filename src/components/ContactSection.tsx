@@ -45,11 +45,8 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub", color: "hover:text-gray-400" },
-  { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-400" },
-  { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-blue-400" },
-  { icon: Youtube, href: "#", label: "YouTube", color: "hover:text-red-400" },
-  { icon: Instagram, href: "#", label: "Instagram", color: "hover:text-pink-400" },
+  { icon: Github, href: "https://github.com/rithick-06", label: "GitHub", color: "hover:text-gray-400" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/rithick-m-k/", label: "LinkedIn", color: "hover:text-blue-400" },
 ];
 
 const ParticleField = () => {
@@ -103,14 +100,58 @@ export const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('from_name', formData.name);
+      formDataToSend.append('replyto', formData.email);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        console.error('Form submission failed:', result);
+        setSubmitStatus('error');
+      }
+      
+      // Reset status after 3 seconds
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-gradient-to-br from-card to-background relative overflow-hidden">
+    <section id="contact" className="relative py-20 px-6 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-card" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(120,119,198,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,255,0.05),transparent_50%)]" />
+      
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] opacity-20" />
       <ParticleField />
       
       {/* Background Decorations */}
@@ -119,7 +160,7 @@ export const ContactSection = () => {
         <div className="absolute bottom-20 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -134,6 +175,9 @@ export const ContactSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to discuss your next AI project? Let's build something amazing together.
           </p>
+          <p className="text-sm text-primary/70 max-w-2xl mx-auto mt-2">
+            Fill out the form below and I'll receive your message directly in my inbox.
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -144,10 +188,13 @@ export const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 bg-card/50 backdrop-blur-xl hover:bg-card/70 hover:border-primary/40 shadow-xl hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-foreground mb-6">Send a Message</h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+                                                           <form onSubmit={handleSubmit} className="space-y-6">
+                  <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "a9f3fdb7-1dba-4aff-aebb-feb3500ecdee"} />
+                  {/* Honeypot field to prevent spam */}
+                  <input type="text" name="botcheck" style={{ display: 'none' }} />
                 <div className="grid md:grid-cols-2 gap-4">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -236,15 +283,47 @@ export const ContactSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   viewport={{ once: true }}
+                  className="space-y-4"
                 >
                   <Button 
                     type="submit" 
                     size="lg" 
                     className="w-full clean-glow group"
+                    disabled={isSubmitting}
                   >
-                    <Send className="w-5 h-5 mr-2 group-hover:animate-bounce-slow" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2 group-hover:animate-bounce-slow" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
+                  
+                  {/* Status Messages */}
+                  {submitStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-3 bg-green-500/20 border border-green-500/30 rounded-lg text-green-600 text-sm text-center"
+                    >
+                      ✓ Message sent successfully! Check your email client.
+                    </motion.div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-600 text-sm text-center"
+                    >
+                      ✗ Something went wrong. Please try again.
+                    </motion.div>
+                  )}
                 </motion.div>
               </form>
             </Card>
@@ -259,7 +338,7 @@ export const ContactSection = () => {
             className="space-y-8"
           >
             {/* Contact Details */}
-            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 bg-card/50 backdrop-blur-xl hover:bg-card/70 hover:border-primary/40 shadow-xl hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
               
               <div className="space-y-6">
@@ -296,7 +375,7 @@ export const ContactSection = () => {
             </Card>
 
             {/* Social Media */}
-            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 bg-card/50 backdrop-blur-xl hover:bg-card/70 hover:border-primary/40 shadow-xl hover:shadow-2xl">
               <h3 className="text-2xl font-bold text-foreground mb-6">Connect With Me</h3>
               
               <div className="flex gap-4">
@@ -331,7 +410,7 @@ export const ContactSection = () => {
               transition={{ delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 text-center">
+              <Card className="p-6 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 text-center bg-card/50 backdrop-blur-xl hover:bg-card/70 hover:border-primary/40 shadow-xl hover:shadow-2xl">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                   <p className="text-sm font-medium text-foreground">Available for Projects</p>

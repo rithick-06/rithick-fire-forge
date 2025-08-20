@@ -7,12 +7,13 @@ export const ThemeToggle: React.FC = () => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
+    // Default to dark theme if no saved preference
     if (savedTheme) {
       setIsDark(savedTheme === 'dark');
     } else {
-      setIsDark(prefersDark);
+      setIsDark(true); // Default to dark
+      localStorage.setItem('theme', 'dark');
     }
     
     document.documentElement.classList.toggle('dark', isDark);
@@ -28,7 +29,7 @@ export const ThemeToggle: React.FC = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg bg-muted/50 hover:bg-muted/80 transition-all duration-300 clean-glow"
+      className="relative p-3 rounded-xl bg-muted/50 hover:bg-muted/80 transition-all duration-300 clean-glow backdrop-blur-sm border border-border/20 hover:border-border/40 shadow-lg hover:shadow-xl"
       whileTap={{ scale: 0.95 }}
       whileHover={{ scale: 1.05 }}
     >

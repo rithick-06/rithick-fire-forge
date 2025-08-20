@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Box, Torus, Text3D, Center } from '@react-three/drei';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Download, Github, Linkedin, Mail, Zap, Cpu, Brain } from 'lucide-react';
+import { ArrowDown, Download, Github, Linkedin, Mail, Phone, Zap, Cpu, Brain, User } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 // Enhanced 3D Scene Components
@@ -181,16 +181,17 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden perspective-3d">
+    <section className="relative min-h-screen overflow-hidden perspective-3d">
       {/* Cyber Background */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, hsl(220 25% 5%), hsl(220 25% 10%), hsl(220 25% 5%))'
+          background: 'linear-gradient(135deg, hsl(220 25% 5%), hsl(220 25% 8%), hsl(220 25% 5%))'
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5" />
       </div>
 
       {/* Matrix Rain */}
@@ -203,7 +204,7 @@ export const HeroSection = () => {
       <ParticleField />
 
       {/* Enhanced 3D Scene */}
-      <div className="absolute top-10 right-10 w-80 h-80 opacity-80">
+      <div className="absolute top-20 right-10 w-64 h-64 opacity-60 hidden lg:block">
         <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
           <ambientLight intensity={0.3} />
           <pointLight position={[10, 10, 10]} intensity={1} color="#00ffff" />
@@ -217,32 +218,71 @@ export const HeroSection = () => {
         </Canvas>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+             {/* Main Content */}
+       <div className="relative z-10 text-center max-w-6xl mx-auto px-6 flex flex-col items-center justify-center min-h-screen pt-24 pb-32">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="space-y-8"
         >
-          {/* Tech Icons */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="flex justify-center gap-6 mb-8"
-          >
-            {[Brain, Cpu, Zap].map((Icon, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                transition={{ duration: 0.3 }}
-                className="w-16 h-16 rounded-full cyber-gradient flex items-center justify-center electric-glow"
-              >
-                <Icon className="w-8 h-8 text-white" />
-              </motion.div>
-            ))}
-          </motion.div>
+                     {/* Profile Photo */}
+           <motion.div
+             initial={{ opacity: 0, scale: 0.5 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{ delay: 0.1, duration: 0.8 }}
+             className="flex justify-center mb-8"
+           >
+             <motion.div
+               whileHover={{ scale: 1.05, rotateY: 5 }}
+               transition={{ duration: 0.3 }}
+               className="relative group"
+             >
+                               {/* Profile Photo - Add your photo to public/profile-photo.jpg */}
+                <img 
+                  src="/profile-photo.jpg" 
+                  alt="Rithick M K" 
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-cyan-400/30 object-cover shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
+                  onError={(e) => {
+                    // Fallback to placeholder if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = `
+                        <div class="w-full h-full flex items-center justify-center">
+                          <svg class="w-16 h-16 md:w-20 md:h-20 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                          </svg>
+                        </div>
+                      `;
+                    }
+                  }}
+                />
+               
+               {/* Glow Effect */}
+               <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-xl group-hover:bg-cyan-400/30 transition-all duration-300" />
+             </motion.div>
+           </motion.div>
+
+           {/* Tech Icons */}
+           <motion.div
+             initial={{ opacity: 0, scale: 0.5 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{ delay: 0.2, duration: 0.8 }}
+             className="flex justify-center gap-6 mb-6"
+           >
+             {[Brain, Cpu, Zap].map((Icon, index) => (
+               <motion.div
+                 key={index}
+                 whileHover={{ scale: 1.2, rotate: 360 }}
+                 transition={{ duration: 0.3 }}
+                 className="w-16 h-16 rounded-2xl cyber-gradient flex items-center justify-center electric-glow shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300"
+               >
+                 <Icon className="w-8 h-8 text-white" />
+               </motion.div>
+             ))}
+           </motion.div>
 
           {/* Greeting */}
           <motion.p
@@ -296,53 +336,80 @@ export const HeroSection = () => {
           >
             <Button
               size="lg"
-              className="electric-glow group relative overflow-hidden bg-cyan-600 hover:bg-cyan-500 text-white font-mono"
+              className="electric-glow group relative overflow-hidden bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono rounded-xl px-8 py-6 text-lg font-semibold shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 btn-glow"
               onClick={() => window.open('https://github.com/rithick-06', '_blank')}
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-3">
                 &gt; EXPLORE PROJECTS
-                <ArrowDown className="w-4 h-4 group-hover:animate-bounce" />
+                <ArrowDown className="w-5 h-5 group-hover:animate-bounce" />
               </span>
             </Button>
             
-            <Button
-              size="lg"
-              variant="outline"
-              className="group border-cyan-400/50 hover:border-cyan-400 hover:cyber-glow text-cyan-400 font-mono neon-border"
-            >
-              <span className="flex items-center gap-2">
-                <Download className="w-4 h-4 group-hover:animate-bounce-slow" />
-                DOWNLOAD RESUME
-              </span>
-            </Button>
+                         <Button
+               size="lg"
+               variant="outline"
+               className="group border-cyan-400/50 hover:border-cyan-400 hover:cyber-glow text-cyan-400 font-mono rounded-xl px-8 py-6 text-lg font-semibold bg-card/20 backdrop-blur-sm hover:bg-card/40 transition-all duration-300 btn-glow"
+               onClick={() => {
+                 // Replace 'resume.pdf' with your actual resume file path
+                 const link = document.createElement('a');
+                 link.href = '/resume.pdf'; // Place your resume in the public folder
+                 link.download = 'Rithick_MK_Resume.pdf';
+                 document.body.appendChild(link);
+                 link.click();
+                 document.body.removeChild(link);
+               }}
+             >
+               <span className="flex items-center gap-3">
+                 <Download className="w-5 h-5 group-hover:animate-bounce-slow" />
+                 DOWNLOAD RESUME
+               </span>
+             </Button>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-            className="flex justify-center gap-6 pt-8"
+            transition={{ delay: 1.3, duration: 0.8 }}
+            className="flex justify-center items-center gap-4 pt-4"
           >
-            {[
-              { icon: Github, href: "https://github.com/rithick-06", label: "GitHub" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/rithick-m-k/", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:rithick06@yahoo.com", label: "Email" },
-            ].map(({ icon: Icon, href, label }) => (
-              <motion.a
-                key={label}
-                href={href}
-                whileHover={{ scale: 1.2, y: -5, rotate: 360 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-4 rounded-full border border-cyan-400/30 hover:border-cyan-400 hover:cyber-glow transition-all duration-300 electric-glow"
-                aria-label={label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon className="w-6 h-6 text-cyan-400" />
-              </motion.a>
-            ))}
+            <div className="flex items-center gap-2 text-cyan-300/80 font-mono text-sm">
+              <Phone className="w-4 h-4" />
+              <span>+91 9585224455</span>
+            </div>
+            <div className="w-1 h-1 bg-cyan-400/50 rounded-full"></div>
+            <div className="flex items-center gap-2 text-cyan-300/80 font-mono text-sm">
+              <Mail className="w-4 h-4" />
+              <span>rithick06@yahoo.com</span>
+            </div>
           </motion.div>
+
+                     {/* Social Links */}
+           <motion.div
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             transition={{ delay: 1.4, duration: 0.8 }}
+             className="flex justify-center gap-6 pt-6 mb-20"
+           >
+             {[
+               { icon: Github, href: "https://github.com/rithick-06", label: "GitHub" },
+               { icon: Linkedin, href: "https://www.linkedin.com/in/rithick-m-k/", label: "LinkedIn" },
+               { icon: Mail, href: "mailto:rithick06@yahoo.com", label: "Email" },
+             ].map(({ icon: Icon, href, label }) => (
+               <motion.a
+                 key={label}
+                 href={href}
+                 whileHover={{ scale: 1.2, y: -5, rotate: 360 }}
+                 whileTap={{ scale: 0.95 }}
+                 className="p-5 rounded-2xl border border-cyan-400/30 hover:border-cyan-400 hover:cyber-glow transition-all duration-300 electric-glow bg-card/20 backdrop-blur-sm hover:bg-card/40 shadow-xl hover:shadow-2xl"
+                 aria-label={label}
+                 target="_blank"
+                 rel="noopener noreferrer"
+               >
+                 <Icon className="w-7 h-7 text-cyan-400" />
+               </motion.a>
+             ))}
+           </motion.div>
         </motion.div>
       </div>
 
@@ -351,15 +418,15 @@ export const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-8 h-8 border-2 border-cyan-400 rounded-full flex items-center justify-center cursor-pointer cyber-glow hover:scale-110"
+          className="w-16 h-16 border-2 border-cyan-400 rounded-full flex items-center justify-center cursor-pointer cyber-glow hover:scale-110 bg-card/20 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300"
           onClick={() => scrollToSection('about')}
         >
-          <ArrowDown className="w-4 h-4 text-cyan-400" />
+          <ArrowDown className="w-8 h-8 text-cyan-400" />
         </motion.div>
       </motion.div>
 

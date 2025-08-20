@@ -9,6 +9,7 @@ const navigationItems = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Achievements', href: '#achievements' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -58,7 +59,7 @@ export const Navigation = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-background/80 backdrop-blur-md border-b border-border/20 shadow-lg' 
+            ? 'bg-background/90 backdrop-blur-xl border-b border-border/30 shadow-2xl' 
             : 'bg-transparent'
         }`}
       >
@@ -143,7 +144,7 @@ export const Navigation = () => {
               animate={{ y: 0 }}
               exit={{ y: "-100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="relative bg-card/90 backdrop-blur-md border-b border-border/20 shadow-2xl"
+              className="relative bg-card/95 backdrop-blur-xl border-b border-border/30 shadow-2xl"
             >
               <div className="px-4 pt-20 pb-8 space-y-6">
                 {navigationItems.map((item, index) => (

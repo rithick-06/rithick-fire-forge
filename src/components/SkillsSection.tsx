@@ -94,7 +94,7 @@ const SkillCard = ({ category, index }: { category: typeof skillCategories[0]; i
       viewport={{ once: true }}
       className="group h-full perspective-3d"
     >
-      <Card className="p-8 h-full cyber-glow border-cyan-400/20 hover:border-cyan-400/40 hover:shadow-clean transition-all duration-500 relative overflow-hidden neon-border">
+      <Card className="p-8 h-full cyber-glow border-cyan-400/20 hover:border-cyan-400/40 hover:shadow-clean transition-all duration-500 relative overflow-hidden neon-border bg-card/50 backdrop-blur-xl hover:bg-card/70 shadow-xl hover:shadow-2xl">
         {/* Background Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
@@ -155,7 +155,15 @@ const SkillCard = ({ category, index }: { category: typeof skillCategories[0]; i
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 px-6 bg-gradient-to-br from-slate-900 via-blue-900/20 to-purple-900/20 relative overflow-hidden scan-line">
+    <section id="skills" className="relative py-20 px-6 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-card" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,255,255,0.05),transparent_50%)]" />
+      
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] opacity-20" />
+      
       {/* Background Decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
@@ -163,7 +171,7 @@ export const SkillsSection = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

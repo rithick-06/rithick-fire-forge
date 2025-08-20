@@ -20,8 +20,15 @@ const highlights = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 px-6 bg-gradient-to-br from-background to-card">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="relative py-20 px-6 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-card" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(120,119,198,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,255,0.05),transparent_50%)]" />
+      
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] opacity-20" />
+              <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +51,7 @@ export const AboutSection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500">
+            <Card className="p-8 clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 bg-card/50 backdrop-blur-xl hover:bg-card/70 hover:border-primary/40 shadow-xl hover:shadow-2xl">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Driven <span className="text-primary font-semibold">Generative AI & Machine Learning Developer</span> specializing in 
                 building intelligent, data-driven applications with cutting-edge deep learning models.
@@ -101,7 +108,7 @@ export const AboutSection = () => {
                 }}
                 className="group"
               >
-                <Card className="p-6 text-center clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 hover:border-primary/50">
+                <Card className="p-6 text-center clean-glow border-primary/20 hover:shadow-clean transition-all duration-500 hover:border-primary/50 bg-card/50 backdrop-blur-xl hover:bg-card/70 shadow-xl hover:shadow-2xl">
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
@@ -130,20 +137,26 @@ export const AboutSection = () => {
 
         {/* Floating Elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 8 }, (_, i) => (
+          {Array.from({ length: 12 }, (_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-primary/20 rounded-full"
+              className={`absolute rounded-full ${
+                i % 3 === 0 ? 'w-3 h-3 bg-primary/30' : 
+                i % 3 === 1 ? 'w-2 h-2 bg-accent/30' : 
+                'w-1 h-1 bg-cyan-400/40'
+              }`}
               style={{
-                left: `${10 + i * 10}%`,
-                top: `${20 + (i % 3) * 20}%`,
+                left: `${5 + i * 8}%`,
+                top: `${15 + (i % 4) * 20}%`,
               }}
               animate={{
-                y: [-20, 20],
-                opacity: [0.2, 0.8, 0.2],
+                y: [-30, 30],
+                x: [-10, 10],
+                opacity: [0.1, 0.6, 0.1],
+                scale: [0.8, 1.2, 0.8],
               }}
               transition={{
-                duration: 3 + i * 0.5,
+                duration: 4 + i * 0.3,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
